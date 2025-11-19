@@ -1,5 +1,8 @@
 import React from "react";
 import Header from "./components/header/Header";
+import Cell from "./components/cell/Cell";
+import Card from "./components/card/Card";
+
 
 const positions = Array(68).fill(0);
 console.log(positions);
@@ -11,16 +14,16 @@ const colors = ["#FF0505", "#1eabf1ff", "#04fc00ff",  "#f2ff00ff"];
 
   const cellProps = {
     id: j+1,
-    color
-    
-  }
+    color, 
+    iscard: (j + 1) % 5 === 0
+  };
   positions[j]=cellProps;
   console.log(j);
  }
 console.log("despues del for", positions);
 
 
-const tittlecolor = "blue"
+const tittlecolor = "red"
 
 
 const App = () => {
@@ -28,29 +31,27 @@ const App = () => {
     <div>
     <Header tittle="parchis" color={tittlecolor}/>
 
-    <div style={{ display: "flex", flexWrap: "nowrap" }}>
-      
-      {positions.map((cell, i) => {
-        return (
-          <div
-            className="jhon"
-            key={cell.id}
-            style={{
-              width: "100px",
-              height: "100px",
-              backgroundColor: cell.color,
-              color: "black",
-              fontFamily: "times new roman",
-              textAlign: "center",
-              borderRadius: "10px",
-              margin: "4px",
-            }}
-          >
-            {cell.id}
-          </div>
-        );
-      })}
-    </div>
+<div 
+        style={{ 
+          display: "flex", 
+          flexWrap: "no-wrap",
+          width: "800px",  
+        }}>
+        
+        {}
+        {positions.map((cell) => {
+          console.log(cell.iscard)
+          return (
+            <Cell key={cell.id} props={cell} >
+              { cell.iscard &&(
+                  <Card />
+              )
+            }
+
+            </Cell>
+          );
+        })}
+      </div>
     </div>
   );
 };
