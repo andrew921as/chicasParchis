@@ -1,0 +1,17 @@
+.footer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-color: bisque;
+}
+
+.social {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.email {
+    display: flex;
+    flex-direction: column;
+}
