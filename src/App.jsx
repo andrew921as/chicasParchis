@@ -61,6 +61,7 @@ const App = () => {
   }
 
 
+const App = () => {
   return (
     <div>
       <Header tittle="parchis" color={tittlecolor} />
