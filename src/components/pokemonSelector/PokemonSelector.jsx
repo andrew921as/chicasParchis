@@ -1,4 +1,5 @@
 import React from 'react'
+import './PokemonSelector.css'
 
 export default function PokemonSelector() {
   const [currentIndexPokemon, setCurrentIndexPokemon] = React.useState(1);
@@ -62,7 +63,7 @@ export default function PokemonSelector() {
   };
 
   return (
-    <section>
+    <section className="pokemon-container">
       <form onSubmit={(e) => handleSubmit(e)}>
         <label htmlFor="pokemonInput">Escribe un Pokémon:</label>
         <input
@@ -75,7 +76,7 @@ export default function PokemonSelector() {
       </form>
       {
         pokemonData && (
-          <div>
+          <div className='pokemon_info'>
             <h3>{pokemonData.name}</h3>
             <img src={pokemonData.sprites.front_default || '/loading.webp'}></img>
           </div>
@@ -83,8 +84,8 @@ export default function PokemonSelector() {
       }
 
       <div className="change_pokemon_buttons">
-        <button style={{ background: "pink", fontFamily: "cursive", fontWeight: "bold", fontSize: "15px" }} onClick={() => handleClick('rest')}> - </button>
-        <button style={{ background: "pink", fontFamily: "cursive", fontWeight: "bold", fontSize: "15px" }} onClick={() => handleClick('add')}> + </button>
+        <button onClick={() => handleClick('rest')}> - </button>
+        <button onClick={() => handleClick('add')}> + </button>
       </div>
 
     </section>

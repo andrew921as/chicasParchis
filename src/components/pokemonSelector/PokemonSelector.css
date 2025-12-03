@@ -1,0 +1,107 @@
+.pokemon-container {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 24px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* --------- Form --------- */
+.pokemon-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pokemon-container label {
+  font-weight: 600;
+  color: #333;
+}
+
+.pokemon-container input {
+  padding: 12px 14px;
+  border-radius: 12px;
+  outline: none;
+
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+
+  transition: all 0.25s ease;
+}
+
+.pokemon-container input:focus {
+  border-color: #ffcb05;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(255, 203, 5, 0.25);
+}
+
+/* --------- Pokémon Card --------- */
+.pokemon_info {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px 20px 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+
+  text-transform: capitalize;
+  gap: 12px;
+}
+
+.pokemon_info img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+/* --------- Buttons --------- */
+.change_pokemon_buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.change_pokemon_buttons button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  background: linear-gradient(135deg, #edf73c, #f9a825);
+  color: #1b1b1b;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.change_pokemon_buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.change_pokemon_buttons button:active {
+  transform: scale(0.95);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 420px) {
+  .pokemon-container {
+    margin: 20px;
+    padding: 18px;
+  }
+}
