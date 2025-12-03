@@ -4,8 +4,10 @@ import Cell from "./components/cell/Cell";
 import Five from "./components/five/five";
 import Footer from "./components/footer/Footer";
 
+import './App.css';
+import PokemonSelector from "./components/pokemonSelector/PokemonSelector";
+
 const positions = Array(68).fill(0);
-console.log(positions);
 const colors = ["#FF0505", "#1eabf1ff", "#04fc00ff", "#f2ff00ff"];
 
 for (let j = 0; j < positions.length; j++) {
@@ -18,9 +20,7 @@ for (let j = 0; j < positions.length; j++) {
     isCard: (j + 1) % 5 === 0 //el % es un modulo
   }
   positions[j] = cellProps;
-  console.log(j);
 }
-console.log("despues del for", positions);
 
 
 const tittlecolor = "red"
@@ -29,51 +29,11 @@ const filecolor = "purple"
 
 const App = () => {
 
-  //Vemos el Hook, que hace un ciclo de vida
-  const [contador, setContador] = React.useState(0);
-  const [currentIndexPokemon, setcurrentIndexPokemon] = React.useState(1);
-  const [pokemonData, setPokemonData] = React.useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        //gett: obtener datos
-        //post: enviar datos
-        //put: actualizar datos
-        //patch: modificar datos parcialmente
-        //delete: eliminar datos
-        const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + currentIndexPokemon);
-        const data = await response.json();
-        console.log(data)
-        setPokemonData(data)
-      } catch (error) {
-        console.log("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  },[currentPokemon]);
-
-  const handleClick = () => {
-    //aqui puede ir cualquier nombre porque eso esta en el setContador y ese pertenece al contador
-    setContador((prevContador) => prevContador + 1);
-    console.log(contador);
-  }
-
-
-const App = () => {
   return (
     <div>
       <Header tittle="parchis" color={tittlecolor} />
 
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "no-wrap",
-          width: "800px",
-        }}>
-
-        { }
+      <main id="parchis">
         {positions.map((cell) => {
           return (
             <Cell key={cell.id} props={cell} >
@@ -84,13 +44,9 @@ const App = () => {
             </Cell>
           );
         })}
-      </div>
+      </main>
 
-      {contador}
-
-      <div  className="button">
-        <button style={{background: "pink", fontFamily: "cursive", fontWeight: "bold", fontSize: "15px"}} onClick={handleClick}> Oprime </button>
-      </div>
+      <PokemonSelector/>
 
       <Footer></Footer>
     </div>

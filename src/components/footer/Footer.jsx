@@ -4,7 +4,7 @@ import "./Footer.css";
 
 export default function Footer({social, email}) {
   return (
-    <div className="footer">
+    <footer className="footer">
         <div className="social">
             <a href="https://github.com/">Github</a>
             <a href="https://www.instagram.com/">Instagram</a>
@@ -16,6 +16,6 @@ export default function Footer({social, email}) {
             <p>3004829413</p>
         </div>
         
-    </div>
+    </footer>
   )
 }
